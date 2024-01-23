@@ -29,39 +29,31 @@ userCtrl.addUser = async (req, res)=>{
 userCtrl.updateUser = async(req, res)=>{
     try{
         const AnteriorUser = await User.findById(req.params.id);
-        if(req.body.password == undefined){        
-            const userDatos = {
+        let userDatos;
+        if(req.body.password === undefined){        
+            userDatos = {
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
-                email: req.body.email,
-                Permisos: req.body.Permisos
+                email: req.body.email
             };
-
-            await User.findByIdAndUpdate({ _id: req.params.id }, userDatos, (err, Update)=>{
-                err && res.status(500).send(err.message);
-                res.status(200).json(Update);
-            }).clone().catch(function(err){ console.log(err) });
-        
         }else{
             const salt = await bcrypt.genSalt(10);
             const hashPassword = await bcrypt.hash(req.body.password, salt);
             
-            const userDatos = {
+            userDatos = {
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
                 email: req.body.email,
-                password: hashPassword,
-                Permisos: req.body.Permisos
+                password: hashPassword
             };
-
-            await User.findByIdAndUpdate({ _id: req.params.id }, userDatos, (err, Update)=>{
-                err && res.status(500).send(err.message);
-                res.status(200).json(Update);
-            }).clone().catch(function(err){ console.log(err) });
         }
-    }catch(error){
-        console.log(error.message);
-        res.json( {message: error.message} );
+        
+        const Update = await User.findByIdAndUpdate(req.params.id, userDatos, { new: true }); // { new: true } para obtener el documento actualizado
+        res.status(200).json(Update);
+        
+    } catch(error){
+        console.log(error);
+        res.status(500).json({ message: error.message });
     }
 };
 //login genera token lo guarda en el header y en una cookie en el navegador 

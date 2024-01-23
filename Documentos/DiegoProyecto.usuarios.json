@@ -1,0 +1,20 @@
+[{
+  "_id": {
+    "$oid": "659b4518aa0e49c0896653f9"
+  },
+  "nombre": "Zaid",
+  "apellido": "Nevarez",
+  "email": "16112085",
+  "password": "$2a$10$E05txvn6LArJ1dJo4guiUeOXiNBGb8IRTPXQMwgdP.pnn4OOBoPKu",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a60a3fad5aa42c57ec2d73"
+  },
+  "nombre": "Diego",
+  "apellido": "Leon Salinas",
+  "email": "16112035",
+  "password": "$2a$10$l5F6rs29fAalyOgxPTEv7uy.Vv5SwxDMibY0QOH2EVom7nV1a/JUi",
+  "__v": 0
+}]

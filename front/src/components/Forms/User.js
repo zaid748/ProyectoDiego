@@ -144,7 +144,6 @@ const User = ()=> {
                         value={Nombre} 
                         onChange={ e=> setNombre(e.target.value)}
                         className='inputRound oh-flex obligatorio' type="text"/>
-                        <button className='btnForm' id='btnuser' style={{  margin: "2rem" }}>Buscar</button>
                     </div>
                     <div className='inputForm'>
                         <label className='labelForm oh-flex'>Apellido</label>

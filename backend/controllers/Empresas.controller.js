@@ -11,6 +11,19 @@ EmpresasController.getAllEmpresa = async (req, res) => {
   }
 };
 
+EmpresasController.getEmpresaById = async (req, res) => {
+  try {
+    const empresaId = req.params.id; // Asume que pasas el ID como parámetro en la ruta
+    const empresa = await Empresas.findById(empresaId);
+    if (!empresa) {
+      return res.status(404).json({ message: "Empresa no encontrada" });
+    }
+    res.json(empresa);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 EmpresasController.getReportes = async (req, res) => {
   try {
     const { busqueda } = req.query;
@@ -58,20 +71,21 @@ EmpresasController.createEmpresa = async (req, res) => {
   }
 };
 
-/* 
-EmpresasController.updateOperaciones = async (req, res) => {
+EmpresasController.updateEmpresas = async (req, res) => {
     try {
-      const updatedOperaciones = await Operaciones.findByIdAndUpdate(req.params.id, { 
-        AtendidoPor: req.body.AtendidoPor,
-        MedioDeContacto: req.body.MedioDeContacto,
-        UltimoContacto: req.body.UltimoContacto
+      const updatedEmpresa = await Empresas.findByIdAndUpdate(req.params.id, { 
+        nombre: req.body.nombre,
+        Ubicacion: req.body.Ubicacion,
+        Telefono: req.body.Telefono,
+        Extensiones: req.body.Extensiones,
+        Correo: req.body.Correo
       }, { new: true });
   
-      res.json(updatedOperaciones);
+      res.json(updatedEmpresa);
     } catch (error) {
       res.status(400).json({ message: error.message });
     }
-}; */
+};
 
 EmpresasController.deleteEmpresa = async (req, res) => {
     try {

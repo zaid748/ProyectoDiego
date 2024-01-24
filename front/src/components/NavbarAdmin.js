@@ -21,7 +21,6 @@ const NavbarAdmin = ()=> {
                         <img className='imgNav' src="/img/Logo-TecNM 3.png" alt="imagen del tec" />
                         <div className='menuRight'>
                             <Nav.Link className='textMenu' as={Link} to="/Home">Empresas</Nav.Link>
-                            <Nav.Link className='textMenu' as={Link} to="/Form/Agregar">Agregar empresa</Nav.Link>
                             <Nav.Link className='textMenu' as={Link} to="/Tables/Users">Usuarios</Nav.Link>
                             <Nav.Link className='textMenu' id='Login' onClick={logout}>Log out</Nav.Link>
                         </div>

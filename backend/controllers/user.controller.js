@@ -50,7 +50,6 @@ userCtrl.updateUser = async(req, res)=>{
         
         const Update = await User.findByIdAndUpdate(req.params.id, userDatos, { new: true }); // { new: true } para obtener el documento actualizado
         res.status(200).json(Update);
-        
     } catch(error){
         console.log(error);
         res.status(500).json({ message: error.message });

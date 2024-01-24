@@ -16,6 +16,8 @@ import NavbarAdmin from './components/NavbarAdmin';
 import Home from './components/Home';
 
 import Empresa from './components/Forms/Empresa';
+import EmpresaActualizacion from './components/Forms/EmpresaActualizacion';
+
 function App() {
 
   const url = `${process.env.REACT_APP_HOST}/User/leerToken`;
@@ -35,7 +37,7 @@ function App() {
 
   useEffect(()=>{
     getAutho();
-  });
+  }, []);
 
   return (
     <div className="App">
@@ -58,6 +60,7 @@ function App() {
                 <Route path='/Forms/Register' element={<Register/>} />
                 <Route path='/Form/Agregar' element={<Empresa/>} />
                 <Route path='/Forms/User/:id' element={<User/>}/>
+                <Route path='/Forms/Empresas/:id' element={<EmpresaActualizacion/>}/>
               </Route>
             </Route>
           </Routes>

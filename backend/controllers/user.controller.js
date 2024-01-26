@@ -80,11 +80,8 @@ userCtrl.logingUser = async(req, res, next)=>{
 //funcion eliminar 
 userCtrl.deleteUser = async(req, res)=>{
     try{
-        const AnteriorUser = await User.findById(req.params.id);
-        await User.findByIdAndDelete({_id:req.params.id}, (err, Eliminar)=>{
-            err && res.status(500).send(err.message);
-            res.status(200).json('Eliminado');
-        }).clone().catch(function(err){ console.log(err) });
+        await User.findByIdAndDelete.findByIdAndDelete(req.params.id);
+        res.json({ message: 'Usuario eliminado' });
     }
     catch(error){
         res.json( {message: error.menssage} );

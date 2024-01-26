@@ -113,7 +113,7 @@ const User = ()=> {
     }
     useEffect(()=>{
         getData();
-    })
+    }, [])
     const goBack = () => {
         // Puedes utilizar el objeto history para volver a la página anterior
         window.history.back();

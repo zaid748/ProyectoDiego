@@ -16,7 +16,7 @@ router.get('/getUsers', getUsers);
 
 router.get('/:id', viewUser);
 
-router.delete('/:id/:user', deleteUser);
+router.delete('/:id', deleteUser);
 
 router.put('/:id', updateUser);
 
